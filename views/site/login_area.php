@@ -1,7 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: NunoBernardo(1091107
- * Date: 02/03/2018
- * Time: 17:47
- */
+
+use yii\bootstrap\Tabs;
+
+echo Tabs::widget([
+    'items' => [
+        [
+            'label' => 'Registo',
+            'content' => $this->render('register'),
+            'headerOptions' => ['class' => 'pull-right'],
+        ],
+        [
+            'label' => 'Login',
+            'content' => $this->render('login'),
+            'active' => true,
+            'headerOptions' => ['class' => 'pull-right'],
+        ],
+    ]
+]);
+
+?>

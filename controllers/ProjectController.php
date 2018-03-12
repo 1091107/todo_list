@@ -1,15 +1,39 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: NunoBernardo(1091107
- * Date: 01/03/2018
- * Time: 12:59
- */
 
 namespace app\controllers;
 
+use app\models\ProjectEvents;
+use yii\web\Controller;
+use yii\helpers\Url;
 
-class ProjectController
+class ProjectController extends Controller
 {
+    public function actionAdd()
+    {
+        ProjectEvents::saveProject();
 
+        return $this->redirect(Url::to(["site/index"]));
+    }
+
+    public function actionEdit() {
+        return ProjectEvents::editProject();
+    }
+
+    public function actionDelete() {
+        ProjectEvents::deleteProject();
+
+        return $this->redirect(Url::to(["site/index"]));
+    }
+
+    public function actionAddtask() {
+        return $this->renderPartial('//site/task', ProjectEvents::addTask());
+    }
+
+    public function actionDeletetask() {
+        ProjectEvents::deleteTask();
+    }
+
+    public function actionCompletetask() {
+        return $this->renderPartial('//site/task', ProjectEvents::completeTask());
+    }
 }

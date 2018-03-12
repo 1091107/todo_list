@@ -1,15 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: NunoBernardo(1091107
- * Date: 01/03/2018
- * Time: 13:14
- */
 
 namespace app\models;
 
+use yii\db\ActiveRecord;
 
-class Task
+class Task extends ActiveRecord
 {
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'id_project' => 'Project ID',
+            'description' => 'Description',
+            'created_date' => 'Created Date',
+            'finished_date' => 'Finished Date',
+            'done' => 'Done',
+        ];
+    }
 
 }
